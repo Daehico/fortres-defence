@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 7750709616934011868}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.9691479, y: -2.521735, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7750709616302048642}
@@ -350,6 +350,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  _skeletonAnimation: {fileID: 817962190694062846}
 --- !u!114 &3924690983018386367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +464,7 @@ Transform:
   m_GameObject: {fileID: 8008729278372249163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7750709616934011861}

@@ -471,6 +471,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  _skeletonAnimation: {fileID: 6917557550419094598}
 --- !u!114 &680479844260200257
 MonoBehaviour:
   m_ObjectHideFlags: 0

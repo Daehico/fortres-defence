@@ -45,11 +45,11 @@ GameObject:
   - component: {fileID: 8945599101780590046}
   - component: {fileID: 1755489789351901431}
   - component: {fileID: 2896382181334094986}
-  - component: {fileID: 6359966500989756768}
   - component: {fileID: 4024401179999616734}
   - component: {fileID: -4311634429453305345}
   - component: {fileID: 1912531194315397297}
   - component: {fileID: -2827929167970686724}
+  - component: {fileID: 3503728208011312966}
   m_Layer: 10
   m_Name: '[Enemy] Mini Gunner'
   m_TagString: Untagged
@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 2742581098072274894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.04, y: -2.641, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3548035050366363329}
@@ -188,7 +188,7 @@ MonoBehaviour:
   useGravity: 0
   gravity: 35
   walkSpeed: 1.5
-  attackType: 0
+  attackType: 1
   startBehavior: 3
   dieBehavior: 0
   hitBehavior: 0
@@ -235,35 +235,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
---- !u!114 &6359966500989756768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2742581098072274894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e94074a36271342bc9710f5a6fae5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  checkPoint: {fileID: 3548035050366363329}
-  aimTarget: 0
-  aimTargetOffset: {x: 0, y: 0.5}
-  firePoint: {fileID: 0}
-  soundShoot: {fileID: 8300000, guid: a9d9c0c06b2c8c04cb78ce6a54e2a048, type: 3}
-  soundShootVolume: 0.5
-  shootingPoint: {fileID: 7713854380231573076}
-  damage: 30
-  detectDistance: 3
-  bullet: {fileID: 6686378747336277193, guid: b5ded0b86258f854c990f4a75d9ac1c8, type: 3}
-  shootingRate: 3
-  multiShoot: 1
-  multiShootRate: 0.2
-  GunObj: {fileID: 0}
+  _skeletonAnimation: {fileID: 1778847098149968438}
 --- !u!50 &4024401179999616734
 Rigidbody2D:
   serializedVersion: 4
@@ -324,6 +296,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 2
   expMax: 4
+--- !u!114 &3503728208011312966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742581098072274894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4932cdb5bdf7f5a418e44fc9aaaf05d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  checkPoint: {fileID: 3548035050366363329}
+  maxTargetPerHit: 1
+  radiusCheck: 0.5
+  dealDamage: 20
+  criticalPercent: 10
+  meleeRate: 2
+  MeleeObj: {fileID: 0}
+  soundAttacksVol: 0.5
+  soundAttacks:
+  - {fileID: 8300000, guid: f0ab3519c32b5214bb094ea00be1b6a9, type: 3}
+  - {fileID: 8300000, guid: f9edee600efe0b34aa63df5a9bf16de9, type: 3}
 --- !u!1 &5210941583421824593
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +349,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5210941583421824593}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2779133630070439852}

@@ -135,11 +135,11 @@ GameObject:
   - component: {fileID: 7886611217188353851}
   - component: {fileID: 2836366437894060725}
   - component: {fileID: 2626245573104976245}
-  - component: {fileID: 3254813533060044510}
   - component: {fileID: 7904260213264259600}
   - component: {fileID: 6427537243121990048}
   - component: {fileID: 7955261639405750052}
   - component: {fileID: -218808271411070551}
+  - component: {fileID: 8207198473472204375}
   m_Layer: 10
   m_Name: '[Enemy] Throw Bomber'
   m_TagString: Untagged
@@ -278,7 +278,7 @@ MonoBehaviour:
   useGravity: 0
   gravity: 35
   walkSpeed: 1.5
-  attackType: 2
+  attackType: 1
   startBehavior: 3
   dieBehavior: 0
   hitBehavior: 0
@@ -325,34 +325,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
---- !u!114 &3254813533060044510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924842065213229019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec72596f743c60e41b4a7f0ae9b212d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angleThrow: 60
-  throwForceMin: 200
-  throwForceMax: 200
-  addTorque: 100
-  throwRate: 5
-  damage: 30
-  throwPosition: {fileID: 1605244271544609540}
-  _Grenade: {fileID: 6298002723083727019, guid: cd4234632ef382840b879be95b95b645,
-    type: 3}
-  soundAttack: {fileID: 8300000, guid: 43a87b865afa2134cba7a46524cbfcd6, type: 3}
-  targetPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  onlyAttackTheFortrest: 1
-  checkPoint: {fileID: 3784733293951656117}
-  radiusDetectPlayer: 5
+  _skeletonAnimation: {fileID: 3127396003168709112}
 --- !u!50 &7904260213264259600
 Rigidbody2D:
   serializedVersion: 4
@@ -413,6 +386,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expMin: 2
   expMax: 4
+--- !u!114 &8207198473472204375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3924842065213229019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4932cdb5bdf7f5a418e44fc9aaaf05d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  checkPoint: {fileID: 3784733293951656117}
+  maxTargetPerHit: 1
+  radiusCheck: 0.5
+  dealDamage: 20
+  criticalPercent: 10
+  meleeRate: 2
+  MeleeObj: {fileID: 0}
+  soundAttacksVol: 0.5
+  soundAttacks:
+  - {fileID: 8300000, guid: f0ab3519c32b5214bb094ea00be1b6a9, type: 3}
+  - {fileID: 8300000, guid: f9edee600efe0b34aa63df5a9bf16de9, type: 3}
 --- !u!1 &4298942742117779602
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4298942742117779602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.064, y: 0.39, z: 0}
+  m_LocalPosition: {x: -0.245, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

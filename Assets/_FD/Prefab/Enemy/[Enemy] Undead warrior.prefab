@@ -350,6 +350,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  _skeletonAnimation: {fileID: 631265070207259913}
 --- !u!114 &3705461613601838572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,7 +366,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  checkPoint: {fileID: 3705461614762541288}
+  checkPoint: {fileID: 0}
   maxTargetPerHit: 1
   radiusCheck: 0.5
   dealDamage: 15

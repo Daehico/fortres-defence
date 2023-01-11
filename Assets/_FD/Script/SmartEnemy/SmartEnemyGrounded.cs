@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Spine.Unity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 	EnemyThrowAttack throwAttack;
 	EnemyCallMinion callMinion;
     SpawnItemHelper spawnItem;
+
+	[SerializeField] private SkeletonAnimation _skeletonAnimation;
     
 	public override void Start ()
 	{
@@ -191,6 +194,7 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 						SetEnemyState (ENEMYSTATE.ATTACK);
 						meleeAttack.Action ();
 						AnimSetTrigger ("melee");
+						_skeletonAnimation.AnimationName = "Attack";
 					} else if (!meleeAttack.isAttacking && enemyState == ENEMYSTATE.ATTACK) {
 						SetEnemyState (ENEMYSTATE.WALK);
 					}
@@ -219,6 +223,7 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 	}
 
 	void HandleAnimation(){
+		_skeletonAnimation.AnimationName = "Walk";
 		AnimSetFloat ("speed", Mathf.Abs (velocity.x));
 		AnimSetBool ("isRunning", Mathf.Abs (velocity.x) > walkSpeed);
         AnimSetBool("isStunning", isStunning);
@@ -236,15 +241,17 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 		meleeAttack.EndCheck4Hit ();
 	}
 
-	public void AnimThrow(){
-		throwAttack.Throw (isFacingRight());
-	}
+    public void AnimThrow()
+    {
+        throwAttack.Throw(isFacingRight());
+    }
 
-	public void AnimShoot(){
-		rangeAttack.Shoot (isFacingRight ());
-	}
+    public void AnimShoot()
+    {
+        rangeAttack.Shoot(isFacingRight());
+    }
 
-	public void AnimCallMinion(){
+    public void AnimCallMinion(){
 		callMinion.CallMinion (isFacingRight ());
 		Invoke ("AllowCheckAttack", 2);
 	}
@@ -268,6 +275,7 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 			spawnItem.Spawn ();
         
         AnimSetBool("isDead", true);
+		_skeletonAnimation.AnimationName = "Dead";
 
         if (enemyEffect == ENEMYEFFECT.BURNING)
 			return;

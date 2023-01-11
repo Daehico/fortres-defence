@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 3449677795528492924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.5, y: -1.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3011590945198913009}
@@ -326,6 +326,7 @@ MonoBehaviour:
   delayChasePlayerWhenDetect: 0
   velocity: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  _skeletonAnimation: {fileID: 2101071891564500026}
 --- !u!114 &8757294933642252361
 MonoBehaviour:
   m_ObjectHideFlags: 0
