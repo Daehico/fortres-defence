@@ -48,15 +48,22 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 
 		controller.collisions.faceDir = 1;
 
-		rangeAttack = GetComponent<EnemyRangeAttack> ();
-		meleeAttack = GetComponent<EnemyMeleeAttack> ();
-		throwAttack = GetComponent<EnemyThrowAttack> ();
-		callMinion = GetComponent<EnemyCallMinion> ();
+		rangeAttack = null;
+		meleeAttack = null;
+		throwAttack = null;
+		callMinion = null;
+
+		rangeAttack = GetComponent<EnemyRangeAttack>();
+        meleeAttack = GetComponent<EnemyMeleeAttack>();
+        throwAttack = GetComponent<EnemyThrowAttack>();
+        callMinion = GetComponent<EnemyCallMinion>();
 
         if (rangeAttack && rangeAttack.GunObj)
 			rangeAttack.GunObj.SetActive (attackType == ATTACKTYPE.RANGE);
 		if (meleeAttack && meleeAttack.MeleeObj)
 			meleeAttack.MeleeObj.SetActive (attackType == ATTACKTYPE.MELEE);
+
+		Debug.Log(attackType);
 
 		spawnItem = GetComponent<SpawnItemHelper> ();
 
@@ -89,6 +96,11 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 
         if (checkTarget.CheckTarget(isFacingRight() ? 1 : -1))
             DetectPlayer(delayChasePlayerWhenDetect);
+
+        if (enemyState == ENEMYSTATE.WALK)
+        {
+			_skeletonAnimation.AnimationName = "Walk";
+		}
     }
     
     public virtual void LateUpdate(){
@@ -223,7 +235,6 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 	}
 
 	void HandleAnimation(){
-		_skeletonAnimation.AnimationName = "Walk";
 		AnimSetFloat ("speed", Mathf.Abs (velocity.x));
 		AnimSetBool ("isRunning", Mathf.Abs (velocity.x) > walkSpeed);
         AnimSetBool("isStunning", isStunning);
