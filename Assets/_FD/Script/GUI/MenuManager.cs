@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour, IListener
 
     [Header("Sound and Music")]
     public Image soundImage;
-    public Image musicImage;
+   // public Image musicImage;
     public Sprite soundImageOn, soundImageOff, musicImageOn, musicImageOff;
 
 
@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour, IListener
     IEnumerator Start()
     {
         soundImage.sprite = GlobalValue.isSound ? soundImageOn : soundImageOff;
-        musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
+        //musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
         if (!GlobalValue.isSound)
             SoundManager.SoundVolume = 0;
         if (!GlobalValue.isMusic)
@@ -153,7 +153,7 @@ public class MenuManager : MonoBehaviour, IListener
     public void TurnMusic()
     {
         GlobalValue.isMusic = !GlobalValue.isMusic;
-        musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
+        //musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
 
         SoundManager.MusicVolume = GlobalValue.isMusic ? SoundManager.Instance.musicsGameVolume : 0;
     }
