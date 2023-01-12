@@ -48,11 +48,6 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 
 		controller.collisions.faceDir = 1;
 
-		rangeAttack = null;
-		meleeAttack = null;
-		throwAttack = null;
-		callMinion = null;
-
 		rangeAttack = GetComponent<EnemyRangeAttack>();
         meleeAttack = GetComponent<EnemyMeleeAttack>();
         throwAttack = GetComponent<EnemyThrowAttack>();
@@ -254,12 +249,12 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage {
 
     public void AnimThrow()
     {
-        throwAttack.Throw(isFacingRight());
+        //throwAttack.Throw(isFacingRight());
     }
 
     public void AnimShoot()
     {
-        rangeAttack.Shoot(isFacingRight());
+        //rangeAttack.Shoot(isFacingRight());
     }
 
     public void AnimCallMinion(){
