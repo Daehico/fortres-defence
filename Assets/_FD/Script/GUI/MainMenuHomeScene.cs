@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class MainMenuHomeScene : MonoBehaviour {
 	public static MainMenuHomeScene Instance;
@@ -18,6 +19,27 @@ public class MainMenuHomeScene : MonoBehaviour {
     public Image soundImage;
     public Image musicImage;
     public Sprite soundImageOn, soundImageOff, musicImageOn, musicImageOff;
+
+    private Action _adOpen;
+    private Action _adOffline;
+    private Action<bool> _adClose;
+    private Action<string> _adError;
+
+    private void OnEnable()
+    {
+        _adOpen += OnAdOpened;
+        _adOffline += OnAdOffline;
+        _adClose += OnAdClose;
+        _adError += OnAdError;
+    }
+
+    private void OnDisable()
+    {
+        _adOpen -= OnAdOpened;
+        _adOffline -= OnAdOffline;
+        _adClose -= OnAdClose;
+        _adError -= OnAdError;
+    }
 
     void Awake(){
 		Instance = this;
@@ -70,6 +92,12 @@ public class MainMenuHomeScene : MonoBehaviour {
 	}
 
 	public void OpenMap(bool open){
+#if YANDEX_GAMES
+        Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
+#endif
+#if VK_GAMES
+ Agava.VKGames.Interstitial.Show();
+#endif
         SoundManager.Click();
         StartCoroutine(OpenMapCo(open));
 	}
@@ -105,7 +133,7 @@ public class MainMenuHomeScene : MonoBehaviour {
         Settings.SetActive(open);
     }
 
-    #region Music and Sound
+#region Music and Sound
     public void TurnSound()
     {
         GlobalValue.isSound = !GlobalValue.isSound;
@@ -121,7 +149,7 @@ public class MainMenuHomeScene : MonoBehaviour {
 
         SoundManager.MusicVolume = GlobalValue.isMusic ? SoundManager.Instance.musicsGameVolume : 0;
     }
-    #endregion
+#endregion
 
     private void CheckSoundMusic(){
         soundImage.sprite = GlobalValue.isSound ? soundImageOn : soundImageOff;
@@ -159,5 +187,29 @@ public class MainMenuHomeScene : MonoBehaviour {
     {
         if (GameMode.Instance)
             GameMode.Instance.ResetDATA();
+    }
+
+    private void OnAdError(string obj)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdClose(bool obj)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdOffline()
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdOpened()
+    {
+        AudioListener.pause = true;
+        AudioListener.volume = 0f;
     }
 }

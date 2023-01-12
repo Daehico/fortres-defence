@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,4 +48,60 @@ public class GiftVideoAd : MonoBehaviour
     //{
     //    allowShow = true;
     //}
+
+    [SerializeField] private int _rewarded;
+
+    private Action _adOpen;
+    private Action _adRevarded;
+    private Action _adClose;
+    private Action<string> _adError;
+
+    private void OnEnable()
+    {
+        _adOpen += OnAdOpened;
+        _adRevarded += OnAdRevarded;
+        _adClose += OnAdClose;
+        _adError += OnAdError;
+    }
+
+    private void OnDisable()
+    {
+        _adOpen -= OnAdOpened;
+        _adRevarded -= OnAdRevarded;
+        _adClose -= OnAdClose;
+        _adError -= OnAdError;
+    }
+
+    public void ShowRevarded()
+    {
+#if YANDEX_GAMES
+Agava.YandexGames.VideoAd.Show(_adOpen,_adRevarded, _adClose, _adError);
+#endif
+#if VK_GAMES
+ Agava.VKGames.VideoAd.Show(_adRevarded);
+#endif
+    }
+
+    private void OnAdError(string obj)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdClose()
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdRevarded()
+    {
+        GlobalValue.SavedCoins += _rewarded;
+    }
+
+    private void OnAdOpened()
+    {
+        AudioListener.pause = true;
+        AudioListener.volume = 0f;
+    }
 }

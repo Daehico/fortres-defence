@@ -28,11 +28,14 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 19634dadb370b4447b7ff03b06fca4e0, type: 3}
-    totalSpriteSurfaceArea: 24465274
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 79b93200b0356405b9aaafc97e8a339c, type: 3}
@@ -648,5 +651,6 @@ SpriteAtlas:
   - btn_prev_gray
   - btn_remove_green
   - btn_remove_gray
+  m_RenderDataMap: {}
   m_Tag: Funtion_Button
   m_IsVariant: 0

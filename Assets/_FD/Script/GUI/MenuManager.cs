@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MenuManager : MonoBehaviour, IListener
 {
@@ -34,6 +35,19 @@ public class MenuManager : MonoBehaviour, IListener
         LoadingUI.SetActive(false);
         HelperUI.SetActive(false);
         uiControl = gameObject.GetComponentInChildren<UI_UI>(true);
+    }
+
+    private Action _adOpen;
+    private Action _adOffline;
+    private Action<bool> _adClose;
+    private Action<string> _adError;
+
+    private void OnEnable()
+    {
+        _adOpen += OnAdOpened;
+        _adOffline += OnAdOffline;
+        _adClose += OnAdClose;
+        _adError += OnAdError;
     }
 
     IEnumerator Start()
@@ -163,18 +177,36 @@ public class MenuManager : MonoBehaviour, IListener
     public void LoadHomeMenuScene()
     {
         SoundManager.Click();
+#if YANDEX_GAMES
+        Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
+#endif
+#if VK_GAMES
+ Agava.VKGames.Interstitial.Show();
+#endif
         StartCoroutine(LoadAsynchronously("Menu"));
     }
 
     public void RestarLevel()
     {
         SoundManager.Click();
+#if YANDEX_GAMES
+        Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
+#endif
+#if VK_GAMES
+ Agava.VKGames.Interstitial.Show();
+#endif
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));
     }
 
     public void LoadNextLevel()
     {
         SoundManager.Click();
+#if YANDEX_GAMES
+        Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
+#endif
+#if VK_GAMES
+ Agava.VKGames.Interstitial.Show();
+#endif
         GlobalValue.levelPlaying++;
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));
     }
@@ -201,6 +233,10 @@ public class MenuManager : MonoBehaviour, IListener
     private void OnDisable()
     {
         Time.timeScale = 1;
+        _adOpen -= OnAdOpened;
+        _adOffline -= OnAdOffline;
+        _adClose -= OnAdClose;
+        _adError -= OnAdError;
     }
 
     public void OpenHelper(bool open)
@@ -208,5 +244,29 @@ public class MenuManager : MonoBehaviour, IListener
         SoundManager.Click();
         HelperUI.SetActive(open);
         Pause();
+    }
+
+    private void OnAdError(string obj)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdClose(bool obj)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdOffline()
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+    }
+
+    private void OnAdOpened()
+    {
+        AudioListener.pause = true;
+        AudioListener.volume = 0f;
     }
 }

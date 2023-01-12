@@ -28,11 +28,14 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: d2300f36dd101439da2abf9c450f73e0, type: 3}
-    totalSpriteSurfaceArea: 176808
     bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2f38a4a3b585449e588bd3e2f8a37842, type: 3}
@@ -52,5 +55,6 @@ SpriteAtlas:
   - score_textbox
   - btn_home
   - star_big_bg
+  m_RenderDataMap: {}
   m_Tag: Complete
   m_IsVariant: 0
