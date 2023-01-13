@@ -23,8 +23,8 @@ public class UI_UI : MonoBehaviour
     float enemyWaveValue;
 
     [Space]
-    public Text coinTxt;
-    public Text expTxt;
+    [SerializeField] private TMP_Text coinTxt;
+    [SerializeField] private TMP_Text expTxt;
     [SerializeField] private TMP_Text levelName;
 
     private void Start()
