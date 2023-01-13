@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +25,7 @@ public class UI_UI : MonoBehaviour
     [Space]
     public Text coinTxt;
     public Text expTxt;
-    public Text levelName;
+    [SerializeField] private TMP_Text levelName;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class UI_UI : MonoBehaviour
 
         healthSlider.value = 1;
         enemyWavePercentSlider.value = 0;
-        levelName.text = "Level " + GlobalValue.levelPlaying;
+        levelName.text = Lean.Localization.LeanLocalization.GetTranslationText("Level") + GlobalValue.levelPlaying;
     }
 
     private void Update()
