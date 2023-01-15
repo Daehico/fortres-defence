@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class AffectZoneButton : MonoBehaviour
     public float coolDown = 3f;
     float coolDownCounter = 0;
     public Image image;
-    public Text timerTxt;
+    public TMP_Text timerTxt;
     bool allowWork = true;
     bool allowCounting = false;
     bool canUse = true;

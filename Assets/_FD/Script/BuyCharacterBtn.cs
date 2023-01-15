@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +14,9 @@ public class BuyCharacterBtn : MonoBehaviour
     public GameObject character;
 
     public GameObject lockIcon;
-    public Text priceTxt;
+    public TMP_Text priceTxt;
     //public Text unlockLevelTxt;
-    public Text numberTxt;
+    public TMP_Text numberTxt;
     public AudioClip soundPurchase;
     Button ownBtn;
     bool isUnlocked = false;

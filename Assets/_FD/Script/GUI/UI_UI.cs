@@ -10,7 +10,7 @@ public class UI_UI : MonoBehaviour
 
     [Header("PLAYER HEALTHBAR")]
     public Slider healthSlider;
-    public Text health;
+    public TMP_Text health;
     float healthValue;
 
     //[Header("ENEMY HEALTHBAR")]
