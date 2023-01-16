@@ -17,7 +17,6 @@ public class MainMenuHomeScene : MonoBehaviour {
 
     [Header("Sound and Music")]
     public Image soundImage;
-    public Image musicImage;
     public Sprite soundImageOn, soundImageOff, musicImageOn, musicImageOff;
 
     private Action _adOpen;
@@ -145,7 +144,6 @@ public class MainMenuHomeScene : MonoBehaviour {
     public void TurnMusic()
     {
         GlobalValue.isMusic = !GlobalValue.isMusic;
-        musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
 
         SoundManager.MusicVolume = GlobalValue.isMusic ? SoundManager.Instance.musicsGameVolume : 0;
     }
@@ -153,7 +151,6 @@ public class MainMenuHomeScene : MonoBehaviour {
 
     private void CheckSoundMusic(){
         soundImage.sprite = GlobalValue.isSound ? soundImageOn : soundImageOff;
-        musicImage.sprite = GlobalValue.isMusic ? musicImageOn : musicImageOff;
         SoundManager.SoundVolume = GlobalValue.isSound ? 1 : 0;
         SoundManager.MusicVolume = GlobalValue.isMusic ? SoundManager.Instance.musicsGameVolume : 0;
     }
