@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using TMPro;
 
-public class ShopItemReward : MonoBehaviour {
+public class ShopItemReward : MonoBehaviour
+{
     public string itemName = "ITEM NAME";
 	public enum ItemType{DoubleArrow, Posion, Freeze}
 	public ItemType itemType;
 
 	public int rewardedUnit = 1;
 
-    public Text nameTxt;
-	public Text rewardedAmountTxt;
-	public Text currentAmountTxt;
+    public TMP_Text nameTxt;
+	public TMP_Text rewardedAmountTxt;
+	public TMP_Text currentAmountTxt;
 	//public AudioClip sound;
 
 	[ReadOnly] public int coinPrice = 1;
-	public Text coinTxt;
-	//public GameObject watchVideoBut;
-	//ShowOptions options;
+	public TMP_Text coinTxt;
+    //public GameObject watchVideoBut;
+    //ShowOptions options;
+
+    [SerializeField] private string _itemNameLocalizationKey;
 
 	void OnEnable(){
 		UpdateAmount ();
-	}
+        itemName = Lean.Localization.LeanLocalization.GetTranslationText(_itemNameLocalizationKey);
+    }
 
 	void Start(){
         if (GameMode.Instance)
@@ -129,13 +134,13 @@ public class ShopItemReward : MonoBehaviour {
         switch (itemType)
         {
             case ItemType.DoubleArrow:
-                currentAmountTxt.text = "current: " + GlobalValue.ItemDoubleArrow;
+                currentAmountTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("current") + GlobalValue.ItemDoubleArrow;
                 break;
             case ItemType.Posion:
-                currentAmountTxt.text = "current: " + GlobalValue.ItemPoison;
+                currentAmountTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("current") + GlobalValue.ItemPoison;
                 break;
             case ItemType.Freeze:
-                currentAmountTxt.text = "current: " + GlobalValue.ItemFreeze;
+                currentAmountTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("current") + GlobalValue.ItemFreeze;
                 break;
             default:
                 break;
