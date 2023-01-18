@@ -9,7 +9,7 @@ public class MainMenuHomeScene : MonoBehaviour {
 	public GameObject MapUI;
     public GameObject ShopUI;
 	public GameObject Loading;
-    public GameObject Settings;
+    //public GameObject Settings;
 	public string facebookLink;
     public string twitterLink = "https://twitter.com/";
 
@@ -46,8 +46,8 @@ public class MainMenuHomeScene : MonoBehaviour {
 			Loading.SetActive (false);
 		if (MapUI != null)
             MapUI.SetActive (false);
-        if (Settings)
-            Settings.SetActive(false);
+        //if (Settings)
+        //    Settings.SetActive(false);
         if (ShopUI)
             ShopUI.SetActive(false);
 
@@ -129,7 +129,7 @@ public class MainMenuHomeScene : MonoBehaviour {
     public void Setting(bool open)
     {
         SoundManager.Click();
-        Settings.SetActive(open);
+        //Settings.SetActive(open);
     }
 
 #region Music and Sound
