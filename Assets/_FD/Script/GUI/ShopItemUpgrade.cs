@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,14 @@ public class ShopItemUpgrade : MonoBehaviour
     public int maxUpgrade = 5;
     public Image[] upgradeDots;
     public Sprite dotImageOn, dotImageOff;
-    public Text nameTxt, inforTxt;
+    public TMP_Text nameTxt, inforTxt;
     [ReadOnly] public int coinPrice = 1;
-    public Text coinTxt;
+    public TMP_Text coinTxt;
 
     public Button upgradeButton;
+
+    [SerializeField] private string _localizationKey;
+    [SerializeField] private string _localizationInforKey;
 
     //[Header("Long Shoot")]
     //public float forcePerUpgrade = 0.1f;
@@ -28,6 +32,9 @@ public class ShopItemUpgrade : MonoBehaviour
         {
             coinPrice = GameMode.Instance.upgradeFortressPrice;
         }
+
+        itemName = Lean.Localization.LeanLocalization.GetTranslationText(_localizationKey);
+        infor = Lean.Localization.LeanLocalization.GetTranslationText(_localizationInforKey);
         nameTxt.text = itemName;
         inforTxt.text = infor;
         coinTxt.text = coinPrice + "";

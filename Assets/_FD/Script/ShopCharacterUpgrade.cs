@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +8,11 @@ public class ShopCharacterUpgrade : MonoBehaviour
 {
     public UpgradedCharacterParameter characterID;
     [Space]
-    public Text 
+    public TMP_Text 
         currentRangeDamage, upgradeRangeDamageStep,
         currentCritical, upgradeCriticleStep;
 
-    public Text price;
+    public TMP_Text price;
 
     public GameObject dot;
     public GameObject dotHoder;
@@ -39,8 +40,8 @@ public class ShopCharacterUpgrade : MonoBehaviour
 
     void UpdateParameter()
     {
-        currentRangeDamage.text = "DAMAGE: " + (characterID.weaponEffect.normalDamageMin + characterID.UpgradeRangeDamage) + "~" + (characterID.weaponEffect.normalDamageMax + characterID.UpgradeRangeDamage);
-        currentCritical.text = "CRIT: " + characterID.UpgradeCriticalDamage + "%";
+        currentRangeDamage.text = Lean.Localization.LeanLocalization.GetTranslationText("Damage") + ": " + (characterID.weaponEffect.normalDamageMin + characterID.UpgradeRangeDamage) + "~" + (characterID.weaponEffect.normalDamageMax + characterID.UpgradeRangeDamage);
+        currentCritical.text = Lean.Localization.LeanLocalization.GetTranslationText("CRIT") + ": " + characterID.UpgradeCriticalDamage + "%";
 
         if (characterID.CurrentUpgrade != -1)
         {
