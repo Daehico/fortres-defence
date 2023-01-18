@@ -21,7 +21,7 @@ public class MapControllerUI : MonoBehaviour {
 
     void SetWorldNumber()
     {
-        worldTxt.text = currentPos + 1 + "/" + howManyBlocks;
+        worldTxt.text =  currentPos + 1 + "/" + howManyBlocks;
     }
     //void SetDots()
     //{

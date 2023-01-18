@@ -78,7 +78,7 @@ public class GiftVideoAd : MonoBehaviour
 Agava.YandexGames.VideoAd.Show(_adOpen,_adRevarded, _adClose, _adError);
 #endif
 #if VK_GAMES
- Agava.VKGames.VideoAd.Show(_adRevarded);
+ DungeonGames.VKGames.VideoAd.Show(_adRevarded);
 #endif
     }
 

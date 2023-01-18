@@ -416,6 +416,9 @@ MonoBehaviour:
   _yanIcon: {fileID: 9212006258253336365}
   _idName: item1
   _rewardedCoins: 100
+  _priceText: {fileID: 8000632928079705935}
+  _yandexPrice: 
+  _vkPrice: 
 --- !u!1 &5235371038638701686
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,8 +454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 113, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 92.6, y: 3.7}
+  m_SizeDelta: {x: 74, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4712989400302333045
 CanvasRenderer:
@@ -482,7 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dcaec26f07ec003479211ac71258462f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38bdf44261e997245aceeed5d52ac843, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

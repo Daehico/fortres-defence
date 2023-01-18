@@ -95,7 +95,7 @@ public class MainMenuHomeScene : MonoBehaviour {
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- Agava.VKGames.Interstitial.Show();
+ DungeonGames.VKGames.Interstitial.Show();
 #endif
         SoundManager.Click();
         StartCoroutine(OpenMapCo(open));

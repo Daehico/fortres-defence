@@ -34,7 +34,7 @@ public class RevardedCoins : MonoBehaviour
         Agava.YandexGames.VideoAd.Show(_adOpen, _adRewarded, _adClose, _adError);
 #endif
 #if VK_GAMES
- Agava.VKGames.VideoAd.Show(_adRevarded);
+ DungeonGames.VKGames.VideoAd.Show(_adRewarded);
 #endif
     }
 

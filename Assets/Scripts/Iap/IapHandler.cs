@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class IapHandler : MonoBehaviour
     [SerializeField] private Image _yanIcon;
     [SerializeField] private string _idName;
     [SerializeField] private int _rewardedCoins;
+    [SerializeField] private TMP_Text _priceText;
+    [SerializeField] private string _yandexPrice;
+    [SerializeField] private string _vkPrice;
 
     private Action _onRewardedCallback;
 
@@ -22,9 +26,11 @@ public class IapHandler : MonoBehaviour
 #if YANDEX_GAMES
         _yanIcon.gameObject.SetActive(true);
        Agava.YandexGames.InAppPurchases.InitPayments();
+        _priceText.text = _yandexPrice;
 #endif
 #if VK_GAMES
 _yanIcon.gameObject.SetActive(false);
+_priceText.text = _vkPrice + " голосов";
 #endif
     }
 

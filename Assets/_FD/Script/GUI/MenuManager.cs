@@ -181,7 +181,7 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- Agava.VKGames.Interstitial.Show();
+ DungeonGames.VKGames.Interstitial.Show();
 #endif
         StartCoroutine(LoadAsynchronously("Menu"));
     }
@@ -193,7 +193,7 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- Agava.VKGames.Interstitial.Show();
+ DungeonGames.VKGames.Interstitial.Show();
 #endif
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));
     }
@@ -205,7 +205,7 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- Agava.VKGames.Interstitial.Show();
+ DungeonGames.VKGames.Interstitial.Show();
 #endif
         GlobalValue.levelPlaying++;
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));

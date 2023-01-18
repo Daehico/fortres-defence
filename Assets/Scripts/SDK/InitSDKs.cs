@@ -20,9 +20,9 @@ public class InitSDKs : MonoBehaviour
             yield return Agava.YandexGames.YandexGamesSdk.Initialize();
         }
 #elif VK_GAMES
-        while (Agava.VKGames.VKGamesSdk.Initialized == false)
+        while (DungeonGames.VKGames.VKGamesSdk.Initialized == false)
         {     
-            yield return Agava.VKGames.VKGamesSdk.Initialize();
+            yield return DungeonGames.VKGames.VKGamesSdk.Initialize();
         }
 
         GameAnalyticsSDK.GameAnalytics.Initialize();
