@@ -446,11 +446,11 @@ public class Player_Archer : Enemy, ICanTakeDamage, IListener
         lastShoot = Time.time;
         isLoading = true;
         yield return new WaitForSeconds(0.1f);
-        anim.SetBool("isLoading", true);
+        //anim.SetBool("isLoading", true);
 
         while ( Time.time < (lastShoot + shootRate)) { yield return null; }
 
-        anim.SetBool("isLoading", false);
+        //anim.SetBool("isLoading", false);
 
         yield return new WaitForSeconds(0.2f);
 

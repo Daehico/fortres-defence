@@ -4846,10 +4846,10 @@ RectTransform:
   m_Father: {fileID: 497491310}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: 0}
-  m_SizeDelta: {x: -30, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000029239, y: 42}
+  m_SizeDelta: {x: 1920, y: 580.1229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195621079
 MonoBehaviour:
@@ -4864,12 +4864,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 300
+    m_Left: 320
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 400
+  m_ChildAlignment: 3
+  m_Spacing: 650
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -12646,7 +12646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockLevel: {fileID: 195621078}
   howManyBlocks: 10
-  step: 1680
+  step: 1930
   worldTxt: {fileID: 1276956029}
   music: {fileID: 0}
 --- !u!1001 &499747334

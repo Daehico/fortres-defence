@@ -16042,7 +16042,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   checkPoint: {fileID: 7410894355869459234}
-  detectDistance: 5
+  detectDistance: 4
   width: 4
   numberLineCheck: 5
   radius: 3
@@ -16132,7 +16132,7 @@ MonoBehaviour:
     m_Bits: 1024
   checkPoint: {fileID: 4772764196200599119}
   maxTargetPerHit: 1
-  radiusCheck: 0.75
+  radiusCheck: 0.5
   dealDamage: 20
   criticalPercent: 10
   meleeRate: 2

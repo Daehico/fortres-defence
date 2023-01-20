@@ -59,10 +59,7 @@ public class SmartEnemyGrounded : Enemy, ICanTakeDamage
         if (meleeAttack && meleeAttack.MeleeObj)
             meleeAttack.MeleeObj.SetActive(attackType == ATTACKTYPE.MELEE);
 
-        Debug.Log(attackType);
-
         spawnItem = GetComponent<SpawnItemHelper>();
-
 
         //Do Get Upgrade
         if (upgradedCharacterID != null)
