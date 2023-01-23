@@ -40152,12 +40152,12 @@ PrefabInstance:
     - target: {fileID: 972646172213389430, guid: 313302dcd7d3fb84699f5d9e9b6a52a2,
         type: 3}
       propertyPath: Waves.Array.data[0].enemySpawns.Array.data[0].numberEnemy
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 972646172213389430, guid: 313302dcd7d3fb84699f5d9e9b6a52a2,
         type: 3}
       propertyPath: Waves.Array.data[0].enemySpawns.Array.data[1].numberEnemy
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 972646172213389430, guid: 313302dcd7d3fb84699f5d9e9b6a52a2,
         type: 3}
