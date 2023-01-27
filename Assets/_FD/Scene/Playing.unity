@@ -9559,6 +9559,61 @@ Transform:
   m_Father: {fileID: 2042575999}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -60}
+--- !u!1 &677186328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677186329}
+  - component: {fileID: 677186330}
+  m_Layer: 0
+  m_Name: Speedx2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &677186329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677186328}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909830738}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &677186330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677186328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u04452"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Speed x2
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "H\u0131z x2"
+    Object: {fileID: 0}
 --- !u!1 &686232703
 GameObject:
   m_ObjectHideFlags: 0
@@ -14202,7 +14257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: Victory
-  FallbackText: 
+  FallbackText: "\u041F\u043E\u0431\u0435\u0434\u0430"
 --- !u!114 &1083333551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14223,7 +14278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "\u041F\u043E\u0431\u0435\u0434\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   m_sharedMaterial: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e,
@@ -14233,7 +14288,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278255615
   m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -14861,13 +14916,13 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u04452"
+    Text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
     Object: {fileID: 0}
   - Language: English
-    Text: Speed x2
+    Text: Speed
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "H\u0131z x2"
+    Text: "H\u0131z"
     Object: {fileID: 0}
 --- !u!1 &1151640885
 GameObject:
@@ -20106,7 +20161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationName: Speed
+  translationName: Speedx2
   FallbackText: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u04452"
 --- !u!114 &1600544038
 MonoBehaviour:
@@ -23896,6 +23951,7 @@ Transform:
   - {fileID: 720488576}
   - {fileID: 1889975350}
   - {fileID: 361319650}
+  - {fileID: 677186329}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31689,8 +31745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpeedUp: 2
-  blinkingObj: {fileID: 2840579089220216803}
-  speedTxt: {fileID: 6938511239251144656}
+  speedTxt: {fileID: 1600544038}
   helperObj: {fileID: 7374440953860836022}
 --- !u!1 &3898610676654332230
 GameObject:

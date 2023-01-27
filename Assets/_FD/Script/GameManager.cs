@@ -10,6 +10,8 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class GameManager: MonoBehaviour {
+    private const string PlayedTotalTimeSaveKey = "TotalPlayedTime";
+
 	public static GameManager Instance{ get; private set;}
     public bool isWatchingAd { get; set; }
 
@@ -21,6 +23,9 @@ public class GameManager: MonoBehaviour {
     public LayerMask layerGround, layerEnemy, layerPlayer;
     [HideInInspector]
 	public List<IListener> listeners;
+
+    private float _lelvelTime;
+    private float _totalPlayedTime;
 
     //add listener called by late actived object
     public void AddListener(IListener _listener)
@@ -50,6 +55,8 @@ public class GameManager: MonoBehaviour {
 		State = GameState.Menu;
 		listeners = new List<IListener> ();
 
+        _totalPlayedTime = PlayerPrefs.GetFloat(PlayedTotalTimeSaveKey);
+        _lelvelTime = 0f;
         //if (testLevel)
         //    Debug.LogError("TESTING LEVEL");
         //else
@@ -92,6 +99,9 @@ public class GameManager: MonoBehaviour {
             GlobalValue.LevelPass = 9999;
             SceneManager.LoadScene(0);
         }
+
+        _lelvelTime += Time.deltaTime;
+        _totalPlayedTime += Time.deltaTime;
     }
     
     //called by MenuManager
@@ -108,6 +118,8 @@ public class GameManager: MonoBehaviour {
 		foreach (var item in listeners) {
 			item.IPlay ();
 		}
+
+        Analitic.StartLevel(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	public void Gamepause(){
@@ -128,7 +140,8 @@ public class GameManager: MonoBehaviour {
         if (State == GameState.Success)
             return;
 
-        
+        Analitic.EndLevel(SceneManager.GetActiveScene().buildIndex, (int)_lelvelTime);
+        Analitic.TotalPlayedTime(_totalPlayedTime);
 
         Time.timeScale = 1;
         SoundManager.Instance.PauseMusic(true);
@@ -191,7 +204,8 @@ public class GameManager: MonoBehaviour {
     }
 
     public void GameOver(){
-       
+        Analitic.RestartLevel(SceneManager.GetActiveScene().buildIndex, (int)_lelvelTime);
+        Analitic.TotalPlayedTime(_totalPlayedTime);
 
         Time.timeScale = 1;
         SoundManager.Instance.PauseMusic(true);

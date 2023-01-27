@@ -21,9 +21,12 @@ public class ShopCharacterUpgrade : MonoBehaviour
     public Sprite dotImageOn, dotImageOff;
 
     public GameObject doubleArrow, poisonFX, freezeFX;
+
+    private NotEnoughCoins _notEnoughCoins;
     // Start is called before the first frame update
     void Start()
     {
+        _notEnoughCoins = FindObjectOfType<NotEnoughCoins>();
         doubleArrow.SetActive(characterID.numberOfArrow == NumberArrow.Double);
         poisonFX.SetActive(characterID.weaponEffect.effectType == WEAPON_EFFECT.POISON);
         freezeFX.SetActive(characterID.weaponEffect.effectType == WEAPON_EFFECT.FREEZE);
@@ -82,9 +85,14 @@ public class ShopCharacterUpgrade : MonoBehaviour
         {
             GlobalValue.SavedCoins -= characterID.UpgradeSteps[characterID.CurrentUpgrade].price;
             SoundManager.PlaySfx(SoundManager.Instance.soundUpgrade);
-
+            Analitic.LoseMoney(GlobalValue.SavedCoins, "character_upgrade", "CharacterUpgrade");
             characterID.UpgradeCharacter();
             UpdateParameter();
+        }
+        else
+        {
+            SoundManager.PlaySfx(SoundManager.Instance.soundNotEnoughCoin);
+            _notEnoughCoins.ShowUp();
         }
     }
 }

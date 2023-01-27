@@ -136,5 +136,6 @@ public class BuyCharacterBtn : MonoBehaviour
         allowWork = false;
         coolDownCounter = coolDown;
         GameManager.Instance.currentExp -= price;
+        Analitic.LoseExp(GameManager.Instance.currentExp, "Buy_melee", "Melee");
     }
 }

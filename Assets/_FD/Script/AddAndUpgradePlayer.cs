@@ -66,6 +66,7 @@ public class AddAndUpgradePlayer : MonoBehaviour, IGetTouchEvent
         {
             currentPlayer++;
             GameManager.Instance.currentExp -= Players[currentPlayer].upgradedCharacterID.price;
+            Analitic.LoseExp(GameManager.Instance.currentExp, "Buy/upgrade_unit", "archer");
             SetPlayer();
             SoundManager.PlaySfx(currentPlayer == 0 ? SoundManager.Instance.soundAddArcher : SoundManager.Instance.soundUpgradeArcher);
         }

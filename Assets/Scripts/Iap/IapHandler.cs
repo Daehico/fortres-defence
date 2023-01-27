@@ -35,7 +35,7 @@ _priceText.text = _vkPrice + " голосов";
     }
 
     public void BuyItem()
-    {
+    { 
 #if YANDEX_GAMES
         Agava.YandexGames.InAppPurchases.BuyItem(_idName, _onRewardedCallback);
 #endif
@@ -47,5 +47,6 @@ _priceText.text = _vkPrice + " голосов";
     private void OnRewardedCallback()
     {
         GlobalValue.SavedCoins += _rewardedCoins;
+        Analitic.BuyIap(_idName);
     }
 }

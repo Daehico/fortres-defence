@@ -20,6 +20,8 @@ public class ShopItemUpgrade : MonoBehaviour
     [SerializeField] private string _localizationKey;
     [SerializeField] private string _localizationInforKey;
 
+    private NotEnoughCoins _notEnoughCoins;
+
     //[Header("Long Shoot")]
     //public float forcePerUpgrade = 0.1f;
 
@@ -40,6 +42,7 @@ public class ShopItemUpgrade : MonoBehaviour
         coinTxt.text = coinPrice + "";
 
         UpdateStatus();
+        _notEnoughCoins = FindObjectOfType<NotEnoughCoins>();
     }
 
     void UpdateStatus()
@@ -78,7 +81,7 @@ public class ShopItemUpgrade : MonoBehaviour
         {
             SoundManager.PlaySfx(SoundManager.Instance.soundUpgrade);
             GlobalValue.SavedCoins -= coinPrice;
-
+            Analitic.LoseMoney(GlobalValue.SavedCoins, "Fortres_upgrade", "Fortres");
 
             GlobalValue.UpgradeStrongWall++;
             GlobalValue.StrongWallExtra += StrongPerUpgrade;
@@ -88,7 +91,7 @@ public class ShopItemUpgrade : MonoBehaviour
         else
         {
             SoundManager.PlaySfx(SoundManager.Instance.soundNotEnoughCoin);
-            NotEnoughCoins.Instance.ShowUp();
+            _notEnoughCoins.ShowUp();
         }
     }
 }

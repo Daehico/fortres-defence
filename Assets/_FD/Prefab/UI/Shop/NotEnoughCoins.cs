@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class NotEnoughCoins : MonoBehaviour {
-	public static NotEnoughCoins Instance;
+	//public static NotEnoughCoins Instance;
 	public GameObject Panel;
 
-	void Awake(){
-		Instance = this;
-	}
+	//void Awake(){
+	//	Instance = this;
+	//}
 
 	// Use this for initialization
 	void Start () {

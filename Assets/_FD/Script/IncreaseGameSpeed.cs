@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class IncreaseGameSpeed : MonoBehaviour
 {
     public float timeSpeedUp = 2;
-    public GameObject blinkingObj;
-    public Text speedTxt;
+    //public GameObject blinkingObj;
+    public TMP_Text speedTxt;
     public GameObject helperObj;
+
     private void Start()
     {
-        speedTxt.text = "Speed x1";
+        speedTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("Speed") + " x1";
         helperObj.SetActive(false);
         Invoke("ShowHelper", 10);
     }
@@ -28,15 +30,15 @@ public class IncreaseGameSpeed : MonoBehaviour
         {
             Time.timeScale = timeSpeedUp;
             StartCoroutine(BlinkingCo());
-            speedTxt.text = "Speed x" + timeSpeedUp;
+            speedTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("Speed") + " x" + timeSpeedUp;
             SoundManager.PlaySfx(SoundManager.Instance.soundTimeUp);
         }
         else
         {
-            blinkingObj.SetActive(true);
+            //blinkingObj.SetActive(true);
             Time.timeScale = 1;
             StopAllCoroutines();
-            speedTxt.text = "Speed x1";
+            speedTxt.text = Lean.Localization.LeanLocalization.GetTranslationText("Speed") + " x1"; ;
             SoundManager.PlaySfx(SoundManager.Instance.soundTimeDown);
         }
 
@@ -48,9 +50,9 @@ public class IncreaseGameSpeed : MonoBehaviour
     {
         while (true)
         {
-            blinkingObj.SetActive(true);
+            //blinkingObj.SetActive(true);
             yield return new WaitForSeconds(0.8f);
-            blinkingObj.SetActive(false);
+            //blinkingObj.SetActive(false);
             yield return new WaitForSeconds(0.2f);
         }
     }

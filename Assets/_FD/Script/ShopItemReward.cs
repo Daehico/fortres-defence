@@ -24,6 +24,7 @@ public class ShopItemReward : MonoBehaviour
     //ShowOptions options;
 
     [SerializeField] private string _itemNameLocalizationKey;
+    private NotEnoughCoins _notEnoughCoins;
 
     void OnEnable()
     {
@@ -33,6 +34,8 @@ public class ShopItemReward : MonoBehaviour
 
     void Start()
     {
+        _notEnoughCoins = FindObjectOfType<NotEnoughCoins>();
+
         if (GameMode.Instance)
         {
             switch (itemType)
@@ -66,13 +69,13 @@ public class ShopItemReward : MonoBehaviour
         {
             coins -= coinPrice;
             GlobalValue.SavedCoins = coins;
-
+            Analitic.LoseMoney(GlobalValue.SavedCoins, "usable_buyed", "Usable");
             DoReward();
         }
         else
         {
             SoundManager.PlaySfx(SoundManager.Instance.soundNotEnoughCoin);
-            NotEnoughCoins.Instance.ShowUp();
+            _notEnoughCoins.ShowUp();
         }
     }
 

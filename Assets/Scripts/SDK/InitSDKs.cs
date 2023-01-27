@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class InitSDKs : MonoBehaviour
 {
+    private const string CountOfStartedLevelsSaveKey = "CountOfStartedLevels";
+
+    private int _countOfStartedLevels;
+
     private void Awake()
     {
         StartCoroutine(InitSdk());
+        _countOfStartedLevels = PlayerPrefs.GetInt(CountOfStartedLevelsSaveKey);
     }
 
     private IEnumerator InitSdk()
@@ -27,6 +32,10 @@ public class InitSDKs : MonoBehaviour
 
         GameAnalyticsSDK.GameAnalytics.Initialize();
 #endif
+        _countOfStartedLevels++;
+        PlayerPrefs.SetInt(CountOfStartedLevelsSaveKey, _countOfStartedLevels);
+        PlayerPrefs.Save();
+        Analitic.StartGame(_countOfStartedLevels);
         SceneManager.LoadScene(1);
     }
 }

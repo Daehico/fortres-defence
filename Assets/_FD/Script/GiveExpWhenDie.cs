@@ -13,6 +13,7 @@ public class GiveExpWhenDie : MonoBehaviour
         int random = Random.Range(expMin, expMax);
         //GlobalValue.SavedCoins += random;
         GameManager.Instance.AddExp(random, transform);
+        Analitic.AddExp(GameManager.Instance.currentExp, "killed_enemy", "Enemy");
 
         //FloatingTextManager.Instance.ShowText((int)random + "", Vector2.up * 1, Color.yellow, transform.position);
     }
