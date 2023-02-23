@@ -89,16 +89,16 @@ public class GameManager: MonoBehaviour {
         }
 
         //UNLOCK ALL
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.U))
-        {
-            bool isRemoveAd = GlobalValue.RemoveAds;
+        //if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.U))
+        //{
+        //    bool isRemoveAd = GlobalValue.RemoveAds;
 
-            PlayerPrefs.DeleteAll();
-            GlobalValue.RemoveAds = isRemoveAd;
+        //    PlayerPrefs.DeleteAll();
+        //    GlobalValue.RemoveAds = isRemoveAd;
 
-            GlobalValue.LevelPass = 9999;
-            SceneManager.LoadScene(0);
-        }
+        //    GlobalValue.LevelPass = 9999;
+        //    SceneManager.LoadScene(0);
+        //}
 
         _lelvelTime += Time.deltaTime;
         _totalPlayedTime += Time.deltaTime;

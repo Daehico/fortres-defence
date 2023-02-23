@@ -5,29 +5,35 @@ using UnityEngine.UI;
 
 public class RemoveAd : MonoBehaviour
 {
-    //public Text priceTxt;
-    //public Text rewardedTxt;
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    gameObject.SetActive(GameMode.Instance && !GlobalValue.RemoveAds);
-    //}
+    [SerializeField] private int _price;
 
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (GlobalValue.RemoveAds)
-    //    {
+    public Text priceTxt;
+    public Text rewardedTxt;
+    // Start is called before the first frame update
+    void Start()
+    {
+#if YANDEX_GAMES
+        gameObject.SetActive(false);
+#endif
+        gameObject.SetActive(GameMode.Instance && !GlobalValue.RemoveAds);
+  
+    }
 
-    //        priceTxt.text = "$" + GameMode.Instance.purchase.removeAdsPrice;
-    //        Debug.LogWarning("Ads Remove");
-    //        gameObject.SetActive(false);
-    //    }
-    //}
+    // Update is called once per frame
+    void Update()
+    {
+        if (GlobalValue.RemoveAds)
+        {
 
-    //public void Buy()
-    //{
-    //    SoundManager.Click();
-    //    GameMode.Instance.BuyRemoveAds();
-    //}
+            priceTxt.text = _price + "голосов";
+            Debug.LogWarning("Ads Remove");
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void Buy()
+    {
+        SoundManager.Click();
+        GameMode.Instance.BuyRemoveAds();
+    }
 }

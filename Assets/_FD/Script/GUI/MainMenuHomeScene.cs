@@ -91,12 +91,12 @@ public class MainMenuHomeScene : MonoBehaviour {
 	}
 
 	public void OpenMap(bool open){
-#if YANDEX_GAMES
+#if YANDEX_GAMES && !UNITY_EDITOR
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
-#if VK_GAMES
- DungeonGames.VKGames.Interstitial.Show();
-#endif
+//#if VK_GAMES
+// DungeonGames.VKGames.Interstitial.Show();
+//#endif
         SoundManager.Click();
         StartCoroutine(OpenMapCo(open));
 	}

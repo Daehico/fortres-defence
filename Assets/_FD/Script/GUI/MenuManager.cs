@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour, IListener
 
     [Header("Sound and Music")]
     public Image soundImage;
-   // public Image musicImage;
+    // public Image musicImage;
     public Sprite soundImageOn, soundImageOff, musicImageOn, musicImageOff;
 
 
@@ -100,7 +100,7 @@ public class MenuManager : MonoBehaviour, IListener
 
     public void IPlay()
     {
-       
+
     }
 
     public void ISuccess()
@@ -118,12 +118,12 @@ public class MenuManager : MonoBehaviour, IListener
 
     public void IPause()
     {
-      
+
     }
 
     public void IUnPause()
     {
-        
+
     }
 
     public void IGameOver()
@@ -141,20 +141,20 @@ public class MenuManager : MonoBehaviour, IListener
 
     public void IOnRespawn()
     {
-        
+
     }
 
     public void IOnStopMovingOn()
     {
-        
+
     }
 
     public void IOnStopMovingOff()
     {
-       
+
     }
 
-    
+
     #region Music and Sound
     public void TurnSound()
     {
@@ -181,7 +181,8 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- DungeonGames.VKGames.Interstitial.Show();
+        if (GlobalValue.RemoveAds == false)
+            DungeonGames.VKGames.Interstitial.Show();
 #endif
         StartCoroutine(LoadAsynchronously("Menu"));
     }
@@ -193,7 +194,8 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- DungeonGames.VKGames.Interstitial.Show();
+        if (GlobalValue.RemoveAds == false)
+            DungeonGames.VKGames.Interstitial.Show();
 #endif
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));
     }
@@ -205,7 +207,7 @@ public class MenuManager : MonoBehaviour, IListener
         Agava.YandexGames.InterstitialAd.Show(_adOpen,_adClose,_adError, _adOffline);
 #endif
 #if VK_GAMES
- DungeonGames.VKGames.Interstitial.Show();
+        DungeonGames.VKGames.Interstitial.Show();
 #endif
         GlobalValue.levelPlaying++;
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().name));

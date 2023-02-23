@@ -371,24 +371,31 @@ using UnityEngine.Purchasing;
 	}
 #else
 public class Purchaser : MonoBehaviour {
-public void BuyItem1()
-{
-Debug.LogError ("You need to turn on IAP in Windown/Services tab to use this feature");
-}
+	public void BuyItem1()
+	{
+		Debug.LogError("You need to turn on IAP in Windown/Services tab to use this feature");
+	}
 
-public void BuyItem2()
-{
-Debug.LogError ("You need to turn on IAP in Windown/Services tab to use this feature");
-}
+	public void BuyItem2()
+	{
+		Debug.LogError("You need to turn on IAP in Windown/Services tab to use this feature");
+	}
 
-public void BuyItem3()
-{
-Debug.LogError ("You need to turn on IAP in Windown/Services tab to use this feature");
-}
+	public void BuyItem3()
+	{
+		Debug.LogError("You need to turn on IAP in Windown/Services tab to use this feature");
+	}
 
-public void BuyRemoveAds()
-{
-Debug.LogError ("You need to turn on IAP in Windown/Services tab to use this feature");
+	public void BuyRemoveAds()
+	{
+		DungeonGames.VKGames.InAppPurchase.BuyItem("RemoveAds", RevardedCallback);
+
+	}
+
+	public void RevardedCallback()
+    {
+		GlobalValue.RemoveAds = true;
+    }
+
 }
-} 
 #endif

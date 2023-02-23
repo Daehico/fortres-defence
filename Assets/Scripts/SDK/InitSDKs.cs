@@ -29,9 +29,9 @@ public class InitSDKs : MonoBehaviour
         {     
             yield return DungeonGames.VKGames.VKGamesSdk.Initialize();
         }
+#endif
 
         GameAnalyticsSDK.GameAnalytics.Initialize();
-#endif
         _countOfStartedLevels++;
         PlayerPrefs.SetInt(CountOfStartedLevelsSaveKey, _countOfStartedLevels);
         PlayerPrefs.Save();
